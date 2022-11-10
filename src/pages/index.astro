@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout
+  title='Igor Rak | Tworca stron webowych | Strony internetowy Zielona Góra'
+>
+  <h1><span class='text-gradient'>Portfolio</span></h1>
+  <ul
+    role='list'
+    class='grid grid-cols-1 gap-y-4 gap-x-0 lg:grid-cols-2 lg:gap-x-4 mt-6 lg:mt-12'
+  >
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668082381/portfolio/lawyers_nn2vym.webp'
+      href='https://docs.astro.build/'
+      title='PageSpeed Insights Google test ma wszystkie wskazniki 100%. Komórka a stacjonarny.'
+      body='Stack: AstroJs React Tailwind CMS:Strapi(Rest API)'
+      isFirst={true}
+    />
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668079635/portfolio/image_7_guw4ov.webp'
+      href='https://astro.build/integrations/'
+      title='Własny szabłon Wordpress'
+      body='CSS,VanilaJS,CMS:Wordpress + Underscore, Form7'
+    />
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668079635/portfolio/image_3_2_bjpoti.webp'
+      href='https://astro.build/themes/'
+      title='Proekt dla Wojewódskiej Biblioteki'
+      body='Frontend:ReactJs+MobX,SASS Backend:Node - ExpressJS, MongoDB'
+    />
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668079635/portfolio/image_6_yfq2rp.webp'
+      href='https://astro.build/themes/'
+      title='Just Landing z mapą i formą kontaktową'
+      body='NextJS Tailwind'
+    />
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668079635/portfolio/image_2_1_vkcrkm.webp'
+      href='https://astro.build/themes/'
+      title='Just Landing'
+      body='NextJS Tailwind'
+    />
+
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668079635/portfolio/image_4_ujqbnw.webp'
+      href='https://astro.build/themes/'
+      title='Forma klientska o kilka kroki'
+      body='React MobX'
+    />
+
+    <Card
+      image='https://res.cloudinary.com/zielona-g-ra/image/upload/v1668087730/portfolio/image_11_bsdueh.webp'
+      href='https://astro.build/themes/'
+      title='Dostawa rollów'
+      body='React MobX'
+    />
+  </ul>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+  .instructions code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent));
+  }
+</style>
