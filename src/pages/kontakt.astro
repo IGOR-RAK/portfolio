@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Form from "../components/Form";
 ---
 
 <Layout
@@ -8,9 +8,9 @@ import Card from "../components/Card.astro";
 >
   <h1><span class='text-gradient uppercase'>Kontakt</span></h1>
   <p>Telefon: <a href='tel:+4733378901'>+48 690 483 990</a></p>
-  <p>Emaie: <a href='mailto: abc@example.com'>Send Email</a></p>
+  <p>Email: <a href='mailto: abc@example.com'>Send Email</a></p>
+  <div class='my-10'><Form client:visible /></div>
 </Layout>
-
 <style>
   h1 {
     font-size: 3rem;
