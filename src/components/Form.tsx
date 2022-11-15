@@ -104,7 +104,9 @@ const Form: React.FC = () => {
     async function postMessage() {
       try {
         const res = await addMessage();
-        console.log(res.data.id);
+        console.log(res.data.data.id);
+        if (res.data.data.id) {
+        }
       } catch (error) {
         let message;
         if (error instanceof Error) message = error.message;
@@ -119,9 +121,6 @@ const Form: React.FC = () => {
 
   return (
     <div className='bg-white my-5 p-4'>
-      <div className='text-3xl text-center font-bold pb-5'>
-        Formularz kontaktowy
-      </div>
       <form id='myform' onSubmit={handleSubmit(onSubmit)}>
         <div className='lg:flex'>
           <div className={inputGroupStyles.div}>
