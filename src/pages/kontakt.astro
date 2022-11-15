@@ -6,10 +6,34 @@ import Form from "../components/Form";
 <Layout
   title='Igor Rak | Tworca stron webowych | Strony internetowy Zielona Góra'
 >
-  <h1><span class='text-gradient uppercase'>Kontakt</span></h1>
-  <p>Telefon: <a href='tel:+4733378901'>+48 690 483 990</a></p>
-  <p>Email: <a href='mailto: abc@example.com'>Send Email</a></p>
-  <div class='my-10'><Form client:visible /></div>
+  <div class='flex gap-x-8 items-center'>
+    <h1 class='pb-2'>
+      <span class='text-gradient text-4xl lg:text-5xl uppercase'>Kontakt</span>
+    </h1>
+    <div class='text-xl font-bold flex gap-x-8 items-center'>
+      <p class=''>
+        <a href='tel:+4733378901'
+          ><img
+            src='/phone.png'
+            alt='Zadzwoń mi'
+            width='30'
+            class='hover:scale-125 transition duration-300'
+          />
+        </a>
+      </p>
+      <p class=''>
+        <a href='mailto: abc@example.com'
+          ><img
+            src='/send.png'
+            alt='Wyślij wiadomość'
+            width='60'
+            class='hover:scale-125 transition duration-300'
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class='my-5'><Form client:visible /></div>
 </Layout>
 <style>
   h1 {

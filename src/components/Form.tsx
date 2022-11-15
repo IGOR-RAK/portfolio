@@ -20,17 +20,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => (
   <input
     ref={ref}
     {...props}
-    onChange={(e) => {
-      if (e.target.id === "phone") {
-        e.target.value =
-          e.target.value
-            .replace(/\s/g, "")
-            .match(/.{1,3}/g)
-            ?.join(" ")
-            .substr(0, 11) || "";
-        console.log(e.target.value);
-      }
-    }}
+    // onChange={(e) => {
+    //   if (e.target.id === "phone") {
+    //     e.target.value =
+    //       e.target.value
+    //         .replace(/\s/g, "")
+    //         .match(/.{1,3}/g)
+    //         ?.join(" ")
+    //         .substr(0, 11) || "";
+    //     console.log(e.target.value);
+    //   }
+    // }}
   />
 ));
 
@@ -82,6 +82,7 @@ interface IFormInput {
 }
 
 const Form: React.FC = () => {
+  const [isModal, setIsModal] = React.useState(false);
   const {
     register,
     handleSubmit,
@@ -103,7 +104,7 @@ const Form: React.FC = () => {
     async function postMessage() {
       try {
         const res = await addMessage();
-        console.log(res.data);
+        console.log(res.data.id);
       } catch (error) {
         let message;
         if (error instanceof Error) message = error.message;
@@ -117,7 +118,7 @@ const Form: React.FC = () => {
   };
 
   return (
-    <div className='bg-white my-5'>
+    <div className='bg-white my-5 p-4'>
       <div className='text-3xl text-center font-bold pb-5'>
         Formularz kontaktowy
       </div>
@@ -125,7 +126,7 @@ const Form: React.FC = () => {
         <div className='lg:flex'>
           <div className={inputGroupStyles.div}>
             <label className={inputGroupStyles.label} htmlFor='name'>
-              Imię i Nazwisko
+              Imię
             </label>
             <Input
               placeholder='Imię i Nazwisko'
@@ -170,19 +171,21 @@ const Form: React.FC = () => {
         </div>
         <div className={inputGroupStyles.div}>
           <label className={inputGroupStyles.label} htmlFor='phone'>
-            Telefon kontaktowy
+            Telefon
           </label>
           <Input
             placeholder='Telefon'
             className={inputGroupStyles.input}
             id='phone'
             type='tel'
-            {...register("phone", { required: true, minLength: 11 })}
+            {...register("phone", {
+              required: true,
+              pattern: /^[\d\(\)\-+]+$/,
+            })}
           />
-
-          {errors?.phone?.type === "minLength" && (
+          {errors?.phone?.type === "pattern" && (
             <p className={inputGroupStyles.errorParagraf}>
-              Proszę wpisać poprawny numer telefonu
+              Proszę podać prawidłowy numer telefonu
             </p>
           )}
           {errors?.phone?.type === "required" && (

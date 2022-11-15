@@ -11,7 +11,7 @@ const { href, title, body, isFirst, image } = Astro.props;
 ---
 
 <li class={`link-card ${isFirst && "col-span-full"}`}>
-  <a href={href}>
+  <a href={href} target='_blank'>
     <img class='w-full' src={image} alt={title} />
     <h2 class='mt-5 font-semibold text-xl lg:text-2xl'>
       {title}
