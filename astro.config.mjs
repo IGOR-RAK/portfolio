@@ -10,7 +10,9 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://stargazers.club",
-  integrations: [react(), tailwind(), sitemap()],
+  integrations: [react(), tailwind(), sitemap()]
 });

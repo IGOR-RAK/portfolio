@@ -5,22 +5,52 @@ export interface Props {
   body: string;
   href: string;
   isFirst?: boolean;
+  github?: string;
 }
 
-const { href, title, body, isFirst, image } = Astro.props;
+const { href, title, body, isFirst, image, github } = Astro.props;
 ---
 
-<li class={`link-card ${isFirst && "col-span-full"}`}>
-  <a href={href} target='_blank'>
-    <img class='w-full' src={image} alt={title} />
-    <h2 class='mt-5 font-semibold text-xl lg:text-2xl'>
-      {title}
-    </h2>
-    <p class='text-lg lg:text-lg'>
-      {body}
-    </p>
-    <div class='text-6xl leading-none'><span>&rarr;</span></div>
-  </a>
+<li class={`bg-white p-4 rounded-xl ${isFirst && "col-span-full"}`}>
+  <div class='min-h-full flex flex-col items-stretch'>
+    <div class='shrink-0 grow'>
+      <img class='w-full' src={image} alt={title} />
+      <h2 class='mt-5 px-4 font-semibold text-xl lg:text-2xl'>
+        {title}
+      </h2>
+      <p class='text-lg lg:text-lg px-4'>
+        {body}
+      </p>
+    </div>
+    <div
+      class='text-sm leading-none my-4 px-4 flex justify-between items-center shrink-0'
+    >
+      <a
+        href={href}
+        target='_blank'
+        class='bg-black text-white hover:opacity-50 flex gap-x-4 justify-center items-center px-4 py-2'
+        ><span>ONLINE</span>
+      </a>
+      <a
+        class='bg-black text-white flex gap-x-4 justify-center items-center px-4 py-2 hover:opacity-50'
+        href={github}
+        target='_blank'
+        ><svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='16'
+          height='16'
+          fill='currentColor'
+          class='bi bi-github'
+          viewBox='0 0 16 16'
+        >
+          <path
+            d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z'
+          ></path>
+        </svg>
+        <div>Github</div>
+      </a>
+    </div>
+  </div>
 </li>
 <style>
   .link-card {
